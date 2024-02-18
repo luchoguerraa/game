@@ -34,14 +34,18 @@ while True:
             sys.exit()
         elif event.type == pygame.KEYDOWN:
             # Verificar teclas presionadas
+            moving_object.move(event.key)
             if event.key == pygame.K_LEFT:
                 moving_object.vel_x = -5
             elif event.key == pygame.K_RIGHT:
                 moving_object.vel_x = 5
+               
             elif event.key == pygame.K_UP:
                 moving_object.vel_y = -5
+             
             elif event.key == pygame.K_DOWN:
                 moving_object.vel_y = 5
+                #moving_object.move(event.key)
             elif event.key == pygame.K_a:
                 # Cambiar a la siguiente imagen de fondo
                 current_background = background_image2 if current_background == background_image1 else background_image1

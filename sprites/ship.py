@@ -1,11 +1,12 @@
 import pygame
+import math
 from shared.globalconstant import width_scene, height_scene
 
 # Crear un sprite para el objeto que se moverá
 class Ship(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
-        
+
         # Cargar la imagen del objeto
         self.original_image = pygame.image.load("images/ship.png")  # Ruta de la imagen del objeto
         self.image = self.original_image
@@ -37,3 +38,21 @@ class Ship(pygame.sprite.Sprite):
         # Rotar la imagen y actualizar el rectángulo
         self.image = pygame.transform.rotate(self.original_image, self.angle)
         self.rect = self.image.get_rect(center=self.rect.center)
+
+    def move(self, event_key):
+        # Ajustar la dirección del movimiento según el evento proporcionado
+
+        switcher = {
+            pygame.K_LEFT: -45,
+            pygame.K_RIGHT: 45,
+            pygame.K_UP: 0,
+            pygame.K_DOWN: 180,
+            pygame.K_a: -45
+        }
+       
+        print('switcher.get(event_key, 0)->',switcher.get(event_key, 0))
+        print('switcher -> ',switcher)
+
+        self.angle = switcher.get(event_key)
+        #self.vel_x = 5 * pygame.math.Vector2(math.cos(math.radians(self.angle)))
+        #self.vel_y = 5 * pygame.math.Vector2(math.sin(math.radians(self.angle)))
