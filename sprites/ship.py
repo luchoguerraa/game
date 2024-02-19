@@ -54,5 +54,4 @@ class Ship(pygame.sprite.Sprite):
         print('switcher -> ',switcher)
 
         self.angle = switcher.get(event_key)
-        #self.vel_x = 5 * pygame.math.Vector2(math.cos(math.radians(self.angle)))
-        #self.vel_y = 5 * pygame.math.Vector2(math.sin(math.radians(self.angle)))
+

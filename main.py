@@ -10,10 +10,24 @@ window = pygame.display.set_mode((width_scene, height_scene))
 pygame.display.set_caption("Mi Primer Juego con Pygame")
 
 # Cargar las imágenes de fondo
-background_image1 = pygame.image.load("images/background1.jpeg")
-background_image2 = pygame.image.load("images/background2.jpeg")
-current_background = background_image1  # Inicializar con la primera imagen
+
+background_images = [
+    pygame.image.load(f"images/scene{i}.png") for i in range(1, 5)
+]
+current_background_index = 0
+current_background = background_images[current_background_index]
 background_rect = current_background.get_rect()
+
+def change_background():
+    global current_background_index, current_background
+    current_background_index = (current_background_index + 1) % len(background_images)
+    current_background = background_images[current_background_index]
+
+# Cargar las imágenes de fondo
+#background_image1 = pygame.image.load("images/background1.jpeg")
+#background_image2 = pygame.image.load("images/background2.jpeg")
+#current_background = background_image1  # Inicializar con la primera imagen
+#background_rect = current_background.get_rect()
 
 # Crear una instancia del sprite
 moving_object = Ship()
@@ -48,7 +62,7 @@ while True:
                 #moving_object.move(event.key)
             elif event.key == pygame.K_a:
                 # Cambiar a la siguiente imagen de fondo
-                current_background = background_image2 if current_background == background_image1 else background_image1
+                change_background()
         elif event.type == pygame.KEYUP:
             # Detener el movimiento al soltar las teclas
             if event.key in [pygame.K_LEFT, pygame.K_RIGHT]:
