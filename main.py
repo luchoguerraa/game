@@ -70,6 +70,8 @@ while True:
             elif event.key in [pygame.K_UP, pygame.K_DOWN]:
                 moving_object.vel_y = 0
 
+
+    change_background()
     # Actualizar lógica del juego
     all_sprites.update()
 
