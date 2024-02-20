@@ -50,8 +50,5 @@ class Ship(pygame.sprite.Sprite):
             pygame.K_a: -45
         }
        
-        print('switcher.get(event_key, 0)->',switcher.get(event_key, 0))
-        print('switcher -> ',switcher)
-
         self.angle = switcher.get(event_key)
 
