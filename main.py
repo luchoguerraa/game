@@ -13,10 +13,6 @@ pygame.display.set_caption("space attack")
 # defined the scene
 handler_scene = HandlerScene()
 
-current_background_index = 0
-current_background = handler_scene.background_images[current_background_index]
-background_rect = current_background.get_rect()
-
 # Crear una instancia del sprite
 moving_object = Ship()
 
@@ -52,7 +48,8 @@ async def main_loop():
                     moving_object.vel_y = 0
 
             
-        await handler_scene.change_background()
+        # await handler_scene.change_background()
+        await handler_scene.change_background2()
         # Actualizar lógica del juego
         all_sprites.update()
 
