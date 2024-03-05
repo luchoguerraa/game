@@ -4,6 +4,7 @@ import asyncio  # Agrega esta línea
 from sprites.ship import Ship
 from shared.globalconstant import width_scene, height_scene
 from scenes.handler_scenes import HandlerScene
+
 # Inicializar Pygame
 pygame.init()
 
@@ -52,7 +53,6 @@ async def main_loop():
         await handler_scene.change_background2()
         # Actualizar lógica del juego
         all_sprites.update()
-
         # Dibujar el fondo
         window.blit(handler_scene.current_background, handler_scene.background_rect)
 

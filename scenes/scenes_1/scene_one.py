@@ -10,4 +10,5 @@ class Scene_one:
         self.current_background_index = 0
         self.current_background = self.background_images[self.current_background_index]
         self.background_rect = self.current_background.get_rect()
+        print('scene_one',self.current_background.get_rect())
 

@@ -3,6 +3,7 @@ from scenes.scenes_1.scene_one import Scene_one
 from scenes.scenes_2.scene_two import Scene_two
 from scenes.scenes_3.scene_three import Scene_three
 from scenes.scenes_4.scene_four import Scene_four
+from shared.globalconstant import width_scene, height_scene
 
 class HandlerScene:
     def __init__(self):
